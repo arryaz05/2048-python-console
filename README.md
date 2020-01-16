@@ -1,2 +1,7 @@
-# 2048-python-console
-2048 game for Windows console in Python
+# 2048 Game for Windows console
+Just run the script:
+
+```sh
+$ python 2048-python-console
+
+```
