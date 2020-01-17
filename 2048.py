@@ -1,6 +1,7 @@
 import random
 import os
 import keyboard
+import time
 
 # Colors
 class bcolors:
@@ -41,18 +42,22 @@ def coloured(val):
 def keyListener():
     while True:
         keystroke = keyboard.read_key()
-        if keystroke == "a":
+        if keystroke in ('a', 'left'):
             board.__swipeLeft__()
             board.__print__()
-        elif keystroke == "d":
+            time.sleep(0.4)
+        elif keystroke in ('d', 'right'):
             board.__swipeRight__()
             board.__print__()
-        elif keystroke == "w":
+            time.sleep(0.4)
+        elif keystroke in ('w', 'up'):
             board.__swipeUp__()
             board.__print__()
-        elif keystroke == "s":
+            time.sleep(0.4)
+        elif keystroke in ('s', 'down'):
             board.__swipeDown__()
             board.__print__()
+            time.sleep(0.4)
 
 def transpose(mat):
     new = []
@@ -229,7 +234,15 @@ class Board:
 
 
 os.system('cls')
-size = input('Insert board size: ')
-board = Board(int(size))
+size = 17
+while size > 16:
+    size = input('Insert board size (max 16): ')
+    try:
+        size = int(size)
+        assert size > 0
+    except:
+        size = 17
+        pass
+board = Board(size)
 board.__print__()
 keyListener()
