@@ -3,6 +3,6 @@ Just run the script, **keyboard** package required
 
 ```sh
 $ pip install keyboard
-$ python 2048-python-console
+$ python 2048-py
 
 ```
